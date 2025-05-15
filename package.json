@@ -4,11 +4,10 @@
   "description": "eso es una prueba para hacer la pagina del cfp en react con los apis que aprendimos",
   "main": "index.js",
   "scripts": {
-  "dev": "concurrently \"npm run server\" \"npm run client\"",
-  "server": "cd backend && npm run dev",
-  "client": "cd frontend && npm run dev"
-}
-,
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm run dev"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ruink123/pagina_cfp_prueba.git"
@@ -23,5 +22,9 @@
   "homepage": "https://github.com/Ruink123/pagina_cfp_prueba#readme",
   "devDependencies": {
     "concurrently": "^9.1.2"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.7",
+    "tailwindcss": "^4.1.7"
   }
 }
