@@ -76,7 +76,7 @@ const Header = () => {
             ></span>
             <a
               href="#"
-              className="relative flex items-center justify-center font-semibold px-4 py-1 text-base"
+              className="relative flex items-center justify-center font-semibold px-4 py-1 text-base  group-hover:bg-red-600"
               style={{
                 color: "#fff",
                 zIndex: 2,
@@ -84,9 +84,14 @@ const Header = () => {
               }}
             >
               Dona Hoy
-              <span className="ml-2 text-xl" role="img" aria-label="corazón">
+              <span
+                className="ml-2 text-xl transition-colors duration-200 group-hover:text-white  "
+                role="img"
+                aria-label="corazón"
+              >
                 ♥
               </span>
+              
             </a>
           </l>
         </ul>
