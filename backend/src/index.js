@@ -1,6 +1,8 @@
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Servidor en puerto ${PORT}`);
-});
+const express = require('express');
+const app = express();
 
-console.log('Servidor funcionando');
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor funcionando en puerto ${PORT}`);
+});
