@@ -1,17 +1,9 @@
 const Footer = () => {
   return (
     <>
-      <footer className="py-16 bg-[url(https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/bg2-2.jpg)] text-white">
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "60px",
-            maxWidth: "1200px",
-            margin: "0 auto",
-          }}
-        >
-          <div>
+      <footer className="py-10 bg-[url(https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/bg2-2.jpg)] text-white footer-stack">
+        <div className="flex flex-col items-center gap-8 sm:gap-10 md:flex-row md:items-start md:justify-center md:gap-8 w-full max-w-5xl mx-auto px-4 md:max-w-4xl md:px-8 lg:max-w-5xl lg:px-4 ">
+          <div className="flex flex-col items-center text-center w-full md:w-1/3 md:items-start md:text-left">
             <strong>
               <h2 style={{ margin: 0 }}>Centro de Formación Profesional</h2>
             </strong>
@@ -21,7 +13,7 @@ const Footer = () => {
               <li>Diplomados y Cursos</li>
             </ul>
           </div>
-          <div>
+          <div className="flex flex-col items-center text-center w-full md:w-1/3 md:items-start md:text-left">
             <strong>
               <h2 style={{ margin: 0 }}>Fundación Alberto Marvelli</h2>
             </strong>
@@ -31,7 +23,7 @@ const Footer = () => {
               <li>Donaciones | Fondo de Becas</li>
             </ul>
           </div>
-          <div>
+          <div className="flex flex-col items-center text-center w-full md:w-1/3 md:items-start md:text-left">
             <strong>
               <h2 style={{ margin: 0 }}>Contáctanos</h2>
             </strong>
@@ -45,7 +37,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <div className="w-full h-8 bg-black "></div>
+      <div className="w-full h-8 bg-black"></div>
     </>
   );
 };
