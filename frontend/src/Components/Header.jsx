@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Nosotros from "./Nosotros";
 
-const Header = () => {
+const Header = ({setVista}) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -61,20 +62,20 @@ const Header = () => {
             }
           >
             <li>
-              <a
+              <button onClick={() => setVista("inicio")}
                 href="#"
                 className="flex items-center justify-center flex-1 h-10 px-4 bg-red-600 text-white rounded-lg text-lg  transition-all duration-200 hover:bg-white hover:text-red-600"
               >
                 inicio
-              </a>
+              </button>
             </li>
             <li className="md:border-l border-white md:ml-4 md:pl-4">
-              <a
-                href="#"
+              <button
+                onClick={() => setVista("nosotros")}
                 className="flex items-center justify-center flex-1 h-10 px-4 text-white rounded-lg text-lg transition-all duration-200 hover:bg-white hover:text-[#3f59ac]"
               >
                 Nosotros
-              </a>
+              </button>
             </li>
             <li className="md:border-l border-white md:ml-4 md:pl-4 vida-cfp-width">
               <a
