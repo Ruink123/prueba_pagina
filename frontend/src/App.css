@@ -40,3 +40,20 @@
 .read-the-docs {
   color: #888;
 }
+
+.rotate-y-0 {
+  transform: rotateY(0deg);
+}
+.-rotate-y-90 {
+  transform: rotateY(-90deg);
+}   
+
+
+
+@media (min-width: 768px) and (max-width: 1166px) {
+  .footer-stack {
+    width: 1220px;
+  }
+  
+}
+
