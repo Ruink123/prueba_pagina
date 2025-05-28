@@ -30,10 +30,8 @@ const Carrucel = () => {
 
     return (
         <>
-            {/* Carrusel oculto en móviles (menor a sm:640px) y visible en pantallas más grandes */}
             <section 
-                className="hidden sm:flex bg-no-repeat bg-cover bg-center w-full transition-all duration-500 ease-in-out
-                          sm:h-[40vh] md:h-[50vh] lg:h-[70vh] xl:h-[80vh] 2xl:h-screen"
+                className="hidden sm:flex sm:bg-center bg-no-repeat bg-cover bg-center w-full h-screen justify-center items-center transition-all duration-500 ease-in-out"
                 style={{ backgroundImage: `url(${imagenes[indiceActual]})` }}
             >
                 <div className="flex justify-between items-center w-full h-full mx-8 text-white text-2xl">
@@ -50,16 +48,13 @@ const Carrucel = () => {
                         <FaArrowRight />
                     </div>
                 </div>
-                
-                
             </section>
             
-            {/* Opcionalmente, puedes mostrar una imagen estática en dispositivos móviles */}
-            <div className="sm:hidden w-full">
+            <div className="block sm:hidden w-full h-96 object-center">
                 <img 
                     src={imagenes[0]} 
-                    alt="Imagen para móviles" 
-                    className="w-full h-auto"
+                    alt="Imagen principal"
+                    className="w-full h-96 object-cover"
                 />
             </div>
         </>
