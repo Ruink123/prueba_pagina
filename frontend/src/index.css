@@ -1,9 +1,9 @@
 
 @import "tailwindcss";
 
-@media (min-width: 768px) and (max-width: 1214px) {
+/* @media (min-width: 768px) and (max-width: 1214px) {
   .vida-cfp-width {
     min-width: 170px;
     max-width: 170px;
   }
-}
+} */
