@@ -10,10 +10,10 @@ const Enlaces = () => {
         aria-hidden="true"
       >
         <span
-          className="pt-57 font-extrabold tracking-wider uppercase text-center w-full"
+          className="pt-57 font-bold tracking-wider uppercase text-center w-full"
           style={{
             fontSize: "clamp(1.8rem, 5vw, 3.2rem)", // Tamaño responsive con clamp
-            color: "#fff",
+            color: "#00000",
             opacity: 0.1,
             letterSpacing: "0.08em",
             lineHeight: 1.1,
