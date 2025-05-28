@@ -1,2 +1,6 @@
-
-
+.rotate-y-0 {
+  transform: rotateY(0deg);
+}
+.-rotate-y-90 {
+  transform: rotateY(-90deg);
+}   
