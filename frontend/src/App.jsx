@@ -9,6 +9,7 @@ import Enlaces from "./Components/Enlaces";
 import Rifa from "./Components/Rifa";
 import DonaHoy from "./Components/DonaHoy";
 import Contacto from "./Components/Contacto";
+import Error from "./Components/Error";
 function App() {
   const [vista, setVista] = useState("inicio"); // "inicio" o "nosotros"
 
@@ -53,6 +54,11 @@ function App() {
       : vista === "DonaHoy" ? (
         <>
           <DonaHoy />
+          <Footer  />
+        </>
+      ): vista === "error" ? (
+        <>
+          <Error />
           <Footer  />
         </>
       )

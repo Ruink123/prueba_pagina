@@ -1,4 +1,77 @@
+import salesiani from "../assets/Enlaces/salesiani-don-bosco.png";
+import CGFMA from "../assets/Enlaces/logo-exsal.png";
+import colegio from "../assets/Enlaces/colegio-don-bosco.png";
+import Ans from "../assets/Enlaces/agenzia.jpg";
+import boletin from "../assets/Enlaces/boletin-salesiano.png";
+import fondacione from "../assets/Enlaces/fondazione.png";
+import inspectoria from "../assets/Enlaces/inspectoria-salvador.png";
+import misiones from "../assets/Enlaces/misiones.svg";
+import React, { useRef, useEffect, useState } from "react";
+
+const enlaces = [
+  {
+    url: "https://www.sdb.org/",
+    img: salesiani,
+    alt: "Salesiani Don Bosco",
+  },
+  {
+    url: "https://www.donboscoexsal.com.gt/",
+    img: CGFMA,
+    alt: "CGFMA",
+  },
+  {
+    url: "https://www.donbosco.edu.gt/",
+    img: colegio,
+    alt: "Don Bosco",
+  },
+  {
+    url: "https://www.infoans.org/es",
+    img: Ans,
+    alt: "ANS",
+  },
+  {
+    url: "https://www.boletinsalesiano.info/",
+    img: boletin,
+    alt: "Boletín Salesiano",
+  },
+  {
+    url: "https://donbosconelmondo.org/",
+    img: fondacione,
+    alt: "Don Bosco Nel Mondo",
+  },
+  {
+    url: "https://www.salesianoscentroamerica.org/",
+    img: inspectoria,
+    alt: "Inspectoría CAM",
+  },
+  {
+    url: "https://misionessalesianas.org/",
+    img: misiones,
+    alt: "Misiones Salesianas",
+  },
+];
+
 const Enlaces = () => {
+  const gridRef = useRef(null);
+  const [showLogos, setShowLogos] = useState(false);
+
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowLogos(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+    if (gridRef.current) {
+      observer.observe(gridRef.current);
+    }
+    return () => {
+      if (gridRef.current) observer.unobserve(gridRef.current);
+    };
+  }, []);
+
   return (
     <div>
       <span
@@ -31,6 +104,38 @@ const Enlaces = () => {
       <h1 className="relative text-2xl sm:text-3xl md:text-4xl lg:text-xl font-extrabold text-black text-center mb-4 md:mb-8 z-10 px-4">
         Enlaces{" "}
       </h1>
+      <div
+        className="min-h-screen flex flex-col items-center justify-center relative"
+        style={{
+          background:
+            "url('/fondo-textura.jpg') center center / cover no-repeat, #22386b",
+        }}
+      >
+        <div
+          ref={gridRef}
+          className="relative z-20 w-[70vw] max-w-6xl mx-auto grid grid-cols-4 grid-rows-2 gap-0"
+        >
+          {showLogos &&
+            enlaces.map((enlace, idx) => (
+              <a
+                key={enlace.url}
+                href={enlace.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center justify-center min-h-[180px] 
+                  ${idx % 4 !== 3 ? "border-r" : ""}
+                  ${idx < 4 ? "border-b" : ""}
+                  border-white border-opacity-60`}
+              >
+                <img
+                  src={enlace.img}
+                  alt={enlace.alt}
+                  className="max-h-16 max-w-[180px] object-contain"
+                />
+              </a>
+            ))}
+        </div>
+      </div>
     </div>
   );
 };
