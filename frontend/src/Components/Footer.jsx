@@ -56,7 +56,7 @@ const Footer = () => {
               <li className="flex items-center gap-2">
                 <FaWhatsapp /> 5887-3249
               </li>
-            </ul>
+            </ul> 
           </div>
         </div>
         <div className=" w-full h-10 bg-black"></div>
