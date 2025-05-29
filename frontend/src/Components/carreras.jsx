@@ -1,16 +1,27 @@
-import { FaComputer } from "react-icons/fa6";
-import { PiPlugChargingBold } from "react-icons/pi";
-import { GiDrill } from "react-icons/gi";
-import { FaMotorcycle } from "react-icons/fa";
-import { SlEarphones } from "react-icons/sl";
-import { LiaNetworkWiredSolid } from "react-icons/lia";
-import { BiSolidUserRectangle } from "react-icons/bi";
 import { useState, useEffect, useRef } from "react";
+import Carreras1 from "../data/archivo";
+
+import * as fa6Icons from "react-icons/fa6";
+import * as liaIcons from "react-icons/lia";
+import * as piIcons from "react-icons/pi";
+import * as giIcons from "react-icons/gi";
+import * as slIcons from "react-icons/sl";
+import * as biIcons from "react-icons/bi";
 
 const Carreras = () => {
   const [displayText, setDisplayText] = useState("");
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [phase, setPhase] = useState(0);
+  const colores = ["bg-[#ea562b]", "bg-[#4055b2]"];
+
+  const libraries = {
+    Fa: fa6Icons,
+    Lia: liaIcons,
+    Pi: piIcons,
+    Gi: giIcons,
+    Sl: slIcons,
+    Bi: biIcons,
+  };
 
   const words = ["FUTURO", "TRABAJO"];
 
@@ -91,69 +102,84 @@ const Carreras = () => {
         </div>
 
         {/* Contenedor principal de tarjetas */}
-        <div className="w-full h-auto px-2 sm:px-4 md:px-6 mb-10 flex justify-center items-center flex-col gap-4 md:gap-5 pt-5 lg:flex md:flex-col lg:w-[100%]  md:justify-center md:items-center md:w-full  ">
-          {/* Primera fila de cartas - Convertido a flexbox */}
-          <div className="w-full flex flex-col md:flex-row justify-center gap-3 md:gap-4">
-            {/* Primera carta flip - Operador y reparador de computadoras */}
-            <div className="w-full sm:w-[calc(50%-0.375rem)] lg:w-[calc(25%-0.75rem)] h-68 group perspective">
-              <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:rotate-y-180">
-                {/* Cara frontal */}
-                <div className="w-full h-full flex justify-center absolute items-center backface-hidden">
-                  <div className="w-full h-full bg-[url(https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/DSC0615-scaled.jpg))] bg-cover flex justify-center relative">
-                    <div className="absolute inset-0 bg-neutral-900 opacity-60"></div>
-                    <div className="w-full h-full flex justify-center items-center flex-col relative z-10">
-                      <div className="w-24 text-white flex justify-center items-center flex-col">
-                        <FaComputer className="text-4xl sm:text-5xl font-bold" />
-                        <h3 className="texto1 font-bold text-center text-base sm:text-xl text-white uppercase pt-3">
-                          operador y reparador de computadoras
-                        </h3>
-                      </div>
-                      <div className="texto1 text-center text-white uppercase text-xs w-full pt-2 font-bold">
-                        carrera técnica
+        <div className="w-full h-auto px-2 sm:px-4 md:px-6 mb-10 flex justify-center items-center flex-col gap-4 md:gap-5 pt-5  md:flex-col lg:w-[100%]  md:justify-center md:items-center md:w-full  ">
+          {/*mapeo de las carreras*/}
+
+          <div className="w-full flex flex-col md:flex-row justify-center gap-4   lg:grid lg:grid-cols-4 lg:grid-rows-3 lg:gap-4 lg:w-full lg:h-auto md:grid md:grid-cols-2 md:grid-rows-6 md:gap-4">
+            {Carreras1.map((carrera, index) => {
+              const prefix = carrera.icon.substring(0, 2);
+              const IconPack = libraries[prefix];
+              const IconComponent = IconPack?.[carrera.icon];
+              let colorClass = colores[0];
+              if (index == 4 || index == 5) {
+                colorClass = colores[1];
+              } else {
+                colorClass = colores[0];
+              }
+
+              return (
+                <div className="w-full sm:w-[calc(50%-0.375rem)] lg:w-full h-68 group perspective md:w-full ">
+                  <div
+                    className={`relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:rotate-y-180 ${colorClass}`}
+                  >
+                    {/* Cara frontal */}
+                    <div className="w-full h-full flex justify-center absolute items-center backface-hidden ">
+                      <div className="w-full h-full  flex justify-center relative">
+                        <div key={carrera.id}>
+                          <img
+                            src={carrera.imagen1}
+                            className="w-full h-full object-cover fixed"
+                          ></img>
+                        </div>
+                        <div
+                          className={`absolute inset-0 opacity-60 ${
+                            carrera.imagen1 == null ? "" : "bg-neutral-900"
+                          }`}
+                        ></div>
+                        <div className="w-full h-full flex justify-center items-center flex-col relative z-10">
+                          <div className="w-45 text-white flex justify-center items-center flex-col">
+                            <h3 className="texto1 font-bold text-center lg:text-base sm:text-xl text-white uppercase pt-3 ">
+                              <div
+                                key={carrera.id}
+                                className="flex flex-col items-center gap-4"
+                              >
+                                {IconComponent ? (
+                                  <IconComponent className="text-6xl sm:text-5xl text-center  " />
+                                ) : (
+                                  <img
+                                    src={carrera.icon}
+                                    className="flex justify-center w-18 h-24  sm:w-12 sm:h-12 invert lg:w-full lg:h-15  "
+                                  />
+                                )}
+                                <p className="w-auto h-full text-white">
+                                  {carrera.title}
+                                </p>
+                              </div>
+                            </h3>
+                          </div>
+                          <div className="texto1 text-center text-white uppercase text-xs w-full pt-2 font-bold">
+                            <div key={carrera.id}>
+                              <p className="w-auto h-full text-white">
+                                {carrera.description}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
 
-                {/* Cara trasera */}
-                <div className="absolute w-full h-full rotate-y-180 backface-hidden">
-                  <div className="w-full h-full bg-[url(https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/DSC0623-scaled.jpg)] bg-cover flex justify-center relative">
-                    <div className="w-full h-full flex justify-center items-center flex-col relative z-10">
-                      <button className="bg-[#4055b2] text-white px-3 py-1 rounded text-sm uppercase font-semibold transition-colors cursor-pointer border-white border-2">
-                        ver más <br /> información
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                    {/* Cara Trasera */}
 
-            {/* Segunda carta flip - Redes Cisco (con rotación vertical) */}
-            <div className="w-full sm:w-[calc(50%-0.375rem)] lg:w-[calc(25%-0.75rem)] h-68 group perspective">
-              <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:rotate-x-180">
-                {/* Cara frontal */}
-                <div className="absolute w-full h-full [backface-visibility:hidden]">
-                  <div className="w-full h-full bg-[#ea562b] flex justify-center relative">
-                    <div className="w-full flex justify-center items-center h-full text-white flex-col">
-                      <LiaNetworkWiredSolid className="text-4xl sm:text-5xl" />
-                      <h3 className="texto1 font-bold text-center text-base sm:text-xl text-white uppercase pt-3">
-                        redes cisco computación
-                      </h3>
-                      <div className="texto1 text-center text-white uppercase text-xs w-full pt-2 font-bold">
-                        carrera técnica
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Cara trasera */}
-                <div className="w-full h-full flex justify-center items-center absolute rotate-x-180 backface-hidden">
-                  <div className="w-full h-full bg-[url(https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/24-scaled.jpg)] flex justify-center relative bg-cover">
-                    {/* Contenido de la cara trasera */}
-                    <div className="w-full h-full flex justify-center items-center flex-col relative z-10">
-                      <div className="text-white w-4/5">
-                        <div className="mt-4 text-center">
-                          <button className="bg-[#ea562b] text-white px-3 py-1 rounded text-sm uppercase font-semibold border-2 border-white transition-colors cursor-pointer">
+                    <div className="absolute w-full h-full rotate-y-180 backface-hidden">
+                      <div className="w-full h-full  flex justify-center relative">
+                        <div key={carrera.id}>
+                          <img
+                            src={carrera.imagen2}
+                            className="w-full h-full object-cover fixed"
+                          ></img>
+                        </div>
+                        <div className="w-full h-full flex justify-center items-center flex-col relative z-10">
+                          <button className="bg-[#4055b2] text-white px-3 py-1 rounded text-sm uppercase font-semibold transition-colors cursor-pointer border-white border-2">
                             ver más <br /> información
                           </button>
                         </div>
@@ -161,276 +187,35 @@ const Carreras = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Tercera carta - Electricidad */}
-            <div className="w-full sm:w-[calc(50%-0.375rem)] lg:w-[calc(25%-0.75rem)] h-68 group perspective">
-              <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:rotate-y-180">
-                {/* Cara frontal */}
-                <div className="w-full h-full flex justify-center absolute items-center backface-hidden">
-                  <div className="w-full h-full bg-[url(https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/DSC0470-scaled.jpg)] bg-cover flex justify-center relative">
-                    <div className="absolute inset-0 bg-neutral-900 opacity-60"></div>
-                    <div className="w-full h-full flex justify-center items-center flex-col relative z-10">
-                      <div className="w-24 text-white flex justify-center items-center flex-col">
-                        <PiPlugChargingBold className="text-4xl sm:text-5xl font-bold" />
-                        <h3 className="texto1 font-bold text-center text-base sm:text-xl text-white uppercase pt-3">
-                          electricidad industrial y domiciliar
-                        </h3>
-                      </div>
-                      <div className="texto1 text-center text-white uppercase text-xs w-full pt-2 font-bold ">
-                        carrera técnica
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Cara trasera */}
-                <div className="absolute w-full h-full rotate-y-180 backface-hidden">
-                  <div className="w-full h-full bg-[url(https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/DSC0452-scaled.jpg)] bg-cover flex justify-center relative">
-                    <div className="w-full h-full flex justify-center items-center flex-col relative z-10">
-                      <button className="bg-[#4055b2] text-white px-3 py-1 rounded text-sm uppercase font-semibold transition-colors cursor-pointer border-white border-2">
-                        ver más <br /> información
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Cuarta carta - Soldadura */}
-            <div className="w-full sm:w-[calc(50%-0.375rem)] lg:w-[calc(25%-0.75rem)] h-68 group perspective">
-              <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:rotate-x-180">
-                <div className="w-full h-full bg-[#4055b2] flex justify-center items-center absolute backface-hidden">
-                  <div className="w-full flex justify-center items-center h-full text-white flex-col">
-                    <img
-                      src="/welding-mask_4610697.svg"
-                      className="flex justify-center w-10 h-10 sm:w-12 sm:h-12 invert"
-                    />
-                    <h3 className="texto1 font-bold text-center text-base sm:text-xl text-white uppercase pt-3 flex flex-col sm:flex-row">
-                      <span>soldadura</span> <span>industrial</span>
-                    </h3>
-                    <div className="texto1 text-center text-white uppercase text-xs w-full pt-2 font-bold">
-                      carrera técnica
-                    </div>
-                  </div>
-                </div>
-
-                {/* carta trasera */}
-                <div className="w-full h-full flex justify-center items-center absolute rotate-x-180 backface-hidden bg-cover bg-[url(https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/DSC0367-scaled.jpg)]">
-                  <button className="bg-amber-400 text-white px-3 py-1 rounded text-sm uppercase font-semibold transition-colors border-white border-2 cursor-pointer">
-                    ver más <br /> información
-                  </button>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
+          {/* Banner de inscripción */}
+          <div className="w-full sm:w-full lg:w-full lg:h-68 h-auto sm:h-68 bg-[#f3af0c]  ">
+            <div className="p-4 md:p-6 h-full flex flex-col justify-between">
+              <div>
+                <h2 className="texto1 text-2xl md:text-3xl text-left text-white font-bold">
+                  Mejora tus Oportunidades | Inscribete Hoy
+                </h2>
 
-          {/* Segunda fila de cartas - Convertido a flexbox */}
-          <div className="w-full flex md:flex-row flex-col justify-center gap-3 md:gap-4">
-            {/* estructuras metalicas */}
-            <div className="w-full sm:w-[calc(50%-0.375rem)] lg:w-[calc(25%-0.75rem)] h-68 group perspective">
-              <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:rotate-x-180">
-                <div className="w-full h-full bg-[#4055b2] flex justify-center items-center absolute backface-hidden">
-                  <div className="w-full flex justify-center items-center h-full text-white flex-col">
-                    <img
-                      src="/steel-beam_10393322.svg"
-                      className="flex justify-center w-10 h-10 sm:w-12 sm:h-12 invert"
-                    />
-                    <h3 className="texto1 font-bold text-center text-base sm:text-xl text-white uppercase pt-3 flex flex-col sm:flex-row">
-                      <p>estructuras metálicas livianas</p> 
-                    </h3>
-                    <div className="texto1 text-center text-white uppercase text-xs w-full pt-2 font-bold">
-                      carrera técnica
-                    </div>
-                  </div>
-                </div>
-
-                {/* carta trasera */}
-                <div className="w-full h-full flex justify-center items-center absolute rotate-x-180 backface-hidden bg-cover bg-[url(https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/estructuras1.png)] bg-center">
-                  <button className="bg-amber-400 text-white px-3 py-1 rounded text-sm uppercase font-semibold transition-colors border-white border-2 cursor-pointer">
-                    ver más <br /> información
-                  </button>
-                </div>
+                <p className="mt-3 text-sm md:text-base">
+                  No pierdas la oportunidad de aprender o mejorar tus
+                  conocimientos. Obtén tu Diplomado. Te abrirás nuevas
+                  oportunidades de Trabajo o de Emprendimiento! Chicos y Chicas
+                  son bienvenidos a nuestras carreras. Pregunta por nuestro
+                  Programa de Becas
+                </p>
               </div>
-            </div>
 
-            {/* carpinteria */}
-            <div className="w-full sm:w-[calc(50%-0.375rem)] lg:w-[calc(25%-0.75rem)] h-68 group perspective">
-              <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:rotate-y-180">
-                {/* Cara frontal */}
-                <div className="w-full h-full flex justify-center items-center absolute backface-hidden">
-                  <div className="w-full h-full bg-[url(https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/14-scaled.jpg)] bg-cover flex justify-center relative">
-                    {/* Capa semitransparente */}
-                    <div className="absolute inset-0 bg-neutral-900 opacity-60"></div>
-
-                    {/* Contenido de texto (sin opacidad) */}
-                    <div className="w-full h-full flex justify-center items-center flex-col relative z-10">
-                      <div className="w-24 text-white flex justify-center items-center flex-col">
-                        <GiDrill className="text-4xl sm:text-5xl font-bold" />
-                        <h3 className="texto1 font-bold text-center text-base sm:text-xl text-white uppercase pt-3">
-                          carpintería
-                        </h3>
-                      </div>
-                      <div className="texto1 text-center text-white uppercase text-xs w-full pt-2 font-bold">
-                        carrera técnica
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Cara trasera */}
-                <div className="w-full h-full flex justify-center items-center absolute rotate-y-180 backface-hidden bg-cover bg-[url(https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/DSC0493-scaled.jpg)]">
-                  <button className="bg-[#4055b2] text-white px-3 py-1 rounded text-sm uppercase font-semibold transition-colors cursor-pointer border-white border-2">
-                    ver más <br /> información
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* torno */}
-            <div className="w-full sm:w-[calc(50%-0.375rem)] lg:w-[calc(25%-0.75rem)] h-68 group perspective">
-              <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:rotate-x-180">
-                <div className="w-full h-full bg-[#ea562b] flex justify-center items-center absolute backface-hidden">
-                  <div className="w-full flex justify-center items-center h-full text-white flex-col">
-                    <img
-                      src="/lathe-machine_9472048.svg"
-                      className="flex justify-center w-10 h-10 sm:w-12 sm:h-12 invert"
-                    />
-                    <h3 className="texto1 font-bold text-center text-base sm:text-xl text-white uppercase pt-3">
-                      MECANICA DE TORNO Y FRESADORA
-                    </h3>
-                    <div className="texto1 text-center text-white uppercase text-xs w-full pt-2 font-bold">
-                      carrera técnica
-                    </div>
-                  </div>
-                </div>
-
-                {/* carta trasera */}
-                <div className="w-full h-full flex justify-center items-center absolute rotate-x-180 backface-hidden bg-cover bg-[url(https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/torno3.png)] bg-center">
-                  <button className="bg-[#ea562b] text-white px-3 py-1 rounded text-sm uppercase font-semibold transition-colors border-white border-2 cursor-pointer">
-                    ver más <br /> información
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/*  motos */}
-            <div className="w-full sm:w-[calc(50%-0.375rem)] lg:w-[calc(25%-0.75rem)] h-68 group perspective">
-              <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:rotate-y-180">
-                {/* Cara frontal */}
-                <div className="w-full h-full flex justify-center absolute items-center backface-hidden">
-                  <div className="w-full h-full bg-[url(https://fundacionalbertomarvelli.org/wp-content/uploads/2023/01/mecanica-motocicletas-scaled.jpg))] bg-cover flex justify-center relative">
-                    <div className="absolute inset-0 bg-neutral-900 opacity-60"></div>
-                    <div className="w-full h-full flex justify-center items-center flex-col relative z-10">
-                      <div className="w-24 text-white flex justify-center items-center flex-col">
-                        <FaMotorcycle className="text-4xl sm:text-5xl font-bold" />
-                        <h3 className="texto1 font-bold text-center text-base sm:text-xl text-white uppercase pt-3">
-                          mecánica de motocicletas
-                        </h3>
-                      </div>
-                      <div className="texto1 text-center text-white uppercase text-xs w-full pt-2 font-bold">
-                        carrera técnica
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Cara trasera */}
-                <div className="absolute w-full h-full rotate-y-180 backface-hidden">
-                  <div className="w-full h-full bg-[url(https://fundacionalbertomarvelli.org/wp-content/uploads/2023/01/mecanica-motocicletas-1-scaled.jpg)] bg-cover flex justify-center relative">
-                    <div className="w-full h-full flex justify-center items-center flex-col relative z-10">
-                      <button className="bg-[#4055b2] text-white px-3 py-1 rounded text-sm uppercase font-semibold transition-colors cursor-pointer border-white border-2">
-                        ver más <br /> información
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Tercera fila - Música, inglés y banner - Convertido a flexbox */}
-          <div className="w-full flex flex-col justify-center gap-3 md:gap-4 md:flex-row">
-            {/* Academia de música */}
-            <div className="w-full sm:w-[calc(50%-0.375rem)] lg:w-[calc(33.333%-0.667rem)] h-68 group perspective">
-              <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:rotate-y-180">
-                {/* Cara frontal */}
-                <div className="w-full h-full flex justify-center absolute items-center backface-hidden">
-                  <div className="w-full h-full bg-[url(https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/25-scaled.jpg))] bg-cover flex justify-center relative">
-                    <div className="absolute inset-0 bg-neutral-900 opacity-60"></div>
-                    <div className="w-full h-full flex justify-center items-center flex-col relative z-10">
-                      <div className="w-24 text-white flex justify-center items-center flex-col">
-                        <SlEarphones className="text-4xl sm:text-5xl font-bold" />
-                        <h3 className="texto1 font-bold text-center text-base sm:text-xl text-white uppercase pt-3">
-                          academia de música
-                        </h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Cara trasera */}
-                <div className="absolute w-full h-full rotate-y-180 backface-hidden">
-                  <div className="w-full h-full bg-[url(https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/28-scaled.jpg)] bg-cover flex justify-center relative">
-                    <div className="w-full h-full flex justify-center items-center flex-col relative z-10">
-                      <button className="bg-[#4055b2] text-white px-3 py-1 rounded text-sm uppercase font-semibold transition-colors cursor-pointer border-white border-2">
-                        ver más <br /> información
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Academia de inglés */}
-            <div className="w-full sm:w-[calc(50%-0.375rem)] lg:w-[calc(33.333%-0.667rem)] h-68 group perspective">
-              <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:rotate-x-180">
-                <div className="w-full h-full bg-[#ea562b] flex justify-center items-center absolute backface-hidden">
-                  <div className="w-full flex justify-center items-center h-full text-white flex-col">
-                    <BiSolidUserRectangle className="flex justify-center text-4xl sm:text-5xl" />
-                    <h3 className="texto1 font-bold text-center text-base sm:text-xl text-white uppercase pt-3">
-                      academia de inglés
-                    </h3>
-                  </div>
-                </div>
-
-                {/* carta trasera */}
-                <div className="w-full h-full flex justify-center items-center absolute rotate-x-180 backface-hidden bg-cover bg-[url(https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/ingles1.png)]">
-                  <button className="bg-[#ea562b]  text-white px-3 py-1 rounded text-sm uppercase font-semibold transition-colors border-white border-2 cursor-pointer">
-                    ver más <br /> información
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Banner informativo */}
-            <div className="w-full sm:w-full lg:w-[67%] lg:h-68 h-auto sm:h-68 bg-[#f3af0c]  ">
-              <div className="p-4 md:p-6 h-full flex flex-col justify-between">
-                <div>
-                  <h2 className="texto1 text-2xl md:text-3xl text-left text-white font-bold">
-                    Mejora tus Oportunidades | Inscribete Hoy
-                  </h2>
-
-                  <p className="mt-3 text-sm md:text-base">
-                    No pierdas la oportunidad de aprender o mejorar tus
-                    conocimientos. Obtén tu Diplomado. Te abrirás nuevas
-                    oportunidades de Trabajo o de Emprendimiento! Chicos y
-                    Chicas son bienvenidos a nuestras carreras. Pregunta por
-                    nuestro Programa de Becas
-                  </p>
-                </div>
-
-                <div className="mt-4 ">
-                  <button className="bg-[#ea562b] w-full sm:w-auto px-4 py-2 hover:bg-[#3f51b5] transition duration-300 ">
-                    <a
-                      href="https://fundacionalbertomarvelli.org/inscripciones/"
-                      className="text-white font-medium"
-                    >
-                      Más información
-                    </a>
-                  </button>
-                </div>
+              <div className="mt-4 ">
+                <button className="bg-[#ea562b] w-full sm:w-auto px-4 py-2 hover:bg-[#3f51b5] transition duration-300 ">
+                  <a
+                    href="https://fundacionalbertomarvelli.org/inscripciones/"
+                    className="text-white font-medium"
+                  >
+                    Más información
+                  </a>
+                </button>
               </div>
             </div>
           </div>
