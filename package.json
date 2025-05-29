@@ -8,6 +8,10 @@
     "server": "cd backend && npm run dev",
     "client": "cd frontend && npm run dev"
   },
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm run dev"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ruink123/pagina_cfp_prueba.git"
