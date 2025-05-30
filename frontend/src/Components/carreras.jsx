@@ -117,6 +117,7 @@ const Carreras = () => {
                 colorClass = colores[0];
               }
 
+              
               return (
                 <div className="w-full sm:w-[calc(50%-0.375rem)] lg:w-full h-68 group perspective md:w-full ">
                   <div

@@ -19,6 +19,7 @@ import latheIcon from '/lathe-machine_9472048.svg';
 import weldingMaskIcon from '/welding-mask_4610697.svg';
 import anchor from '/anchor_4338207.svg';
 
+
 const Carreras1 = [
   {
     id: "reparacion",
