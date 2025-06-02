@@ -1,4 +1,4 @@
-import TypewriterText from "./TypewriterText.JSX";
+import TypewriterText from "./TypeWtriterText";
 import banner from "../assets/Rifa/Banner-horizontal.jpg";
 import fond from "../assets/Rifa/bckg-6.jpg";
 const Rifa = () => {

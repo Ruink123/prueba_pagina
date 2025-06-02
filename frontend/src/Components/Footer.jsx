@@ -45,18 +45,33 @@ const Footer = () => {
                 <IoCall /> +502 2209-9999
               </li>
               <li className="flex items-center gap-2">
-                <MdEmail /> info@fundacionalbertomarvelli.org
+                  <MdEmail /> info@fundacionalbertomarvelli.org
               </li>
-              <li className="flex items-center gap-2">
-                <FaFacebookF /> Facebook.com/CFP.AMBROSIO
+              <li>
+                <a
+                  href="https://www.facebook.com/CFP.AMBROSIO"
+                  className="flex items-center gap-2"
+                >
+                  <FaFacebookF /> Facebook.com/CFP.AMBROSIO
+                </a>
               </li>
-              <li className="flex items-center gap-2">
-                <FaInstagram /> Instagram.com/cfpbartolomeambrosio/
+              <li>
+                <a
+                  href="https://www.instagram.com/cfpbartolomeambrosio/"
+                  className="flex items-center gap-2"
+                >
+                  <FaInstagram /> Instagram.com/cfpbartolomeambrosio/
+                </a>
               </li>
-              <li className="flex items-center gap-2">
-                <FaWhatsapp /> 5887-3249
+              <li>
+                <a
+                  href="https://wa.me/58324945"
+                  className="flex items-center gap-2"
+                >
+                  <FaWhatsapp className="w-5 h-5" /> 5832-4945
+                </a>
               </li>
-            </ul> 
+            </ul>
           </div>
         </div>
         <div className=" w-full h-10 bg-black"></div>

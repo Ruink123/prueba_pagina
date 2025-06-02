@@ -1,6 +1,7 @@
 import banner from "../assets/Donar/Banner.jpg";
 import donar from "../assets/Donar/foto-donaciones.png";
-import TypeWrite from "./TypewriterText";
+import TypewriterText from "./TypeWtriterText";
+import donate from "../assets/Donar/donate_box.png";
 
 const DonaHoy = () => {
   return (
@@ -141,8 +142,27 @@ const DonaHoy = () => {
         </div>
       </div>
       <div className="w-full mt-8 py-4 text-center  bg-[#f5dda6]">
-        <TypeWrite text="¡ Muchas Gracias por tu Donativo" />
+        <TypewriterText text="¡ Muchas Gracias por tu Donativo" />
       </div>
+      <br />
+      <div className="w-full flex flex-col md:flex-row items-center justify-center bg-[#f5dda6] py-10 mb-6 rounded-lg ">
+  <div className="flex-1 flex flex-col items-center md:items-end px-4">
+    <h2 className="text-2xl md:text-3xl font-extrabold text-[#ea562b] text-center md:text-right leading-tight">
+      TU AYUDA HACE<br />LA DIFERENCIA
+    </h2>
+    <h3 className="text-xl md:text-2xl font-extrabold text-[#4055b3] text-center md:text-right mt-2 leading-tight">
+      EN EL FUTURO DE<br />NUESTROS<br />JÓVENES
+    </h3>
+  </div>
+  <div className="flex-1 flex justify-center mt-6 md:mt-0 px-4">
+    <img
+      src={donate}
+      alt="Donar"
+      className="w-64 max-w-full"
+      style={{ minWidth: 200 }}
+    />
+  </div>
+</div>
     </div>
   );
 };

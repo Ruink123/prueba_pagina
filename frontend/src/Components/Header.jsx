@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
 
-const Header = ({ setVista, vistaActiva }) => {
+const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  // Para saber qué ruta está activa
+  const isActive = (path) => location.pathname === path;
 
   return (
     <header className="bg-white md:py-4">
       <div className="w-full md:max-w-7xl mx-auto px-2 md:px-8 flex justify-center">
         <nav className="relative flex items-center w-full justify-between h-20 md:h-auto gap-2 xs:gap-4">
-          {" "}
           {/* Logo con margen izquierdo */}
           <div className="flex items-center flex-shrink-0 ml-2 xs:ml-4 sm:ml-6">
             <img
@@ -18,7 +22,7 @@ const Header = ({ setVista, vistaActiva }) => {
               style={{ background: "transparent" }}
             />
           </div>
-          {/* Botón hamburguesa en la esquina superior derecha */}
+          {/* Botón hamburguesa */}
           <button
             className="md:hidden absolute right-2 top-4 xs:right-4 sm:right-6 z-50 transition-transform duration-500"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -53,7 +57,7 @@ const Header = ({ setVista, vistaActiva }) => {
               menuOpen
                 ? {
                     position: "absolute",
-                    top: "80px", // igual a h-20
+                    top: "80px",
                     left: 0,
                     width: "100%",
                     zIndex: 40,
@@ -62,82 +66,89 @@ const Header = ({ setVista, vistaActiva }) => {
             }
           >
             <li>
-              <button
-                onClick={() => setVista("inicio")}
+              <Link
+                to="/"
+                onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
-                  vistaActiva === "inicio"
+                  isActive("/")
                     ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
                     : "text-white hover:bg-white hover:text-[#3f59ac]"
                 }`}
               >
                 Inicio
-              </button>
+              </Link>
             </li>
             <li className="md:border-l border-white md:ml-4 md:pl-4">
-              <button
-                onClick={() => setVista("nosotros")}
+              <Link
+                to="/nosotros"
+                onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
-                  vistaActiva === "nosotros"
+                  isActive("/nosotros")
                     ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
                     : "text-white hover:bg-white hover:text-[#3f59ac]"
                 }`}
               >
                 Nosotros
-              </button>
+              </Link>
             </li>
             <li className="md:border-l border-white md:ml-4 md:pl-4 vida-cfp-width sm:w-36">
-              <button
-                onClick={() => setVista("vidacfp")}
+              <Link
+                to="/vidacfp"
+                onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
-                  vistaActiva === "vidacfp"
+                  isActive("/vidacfp")
                     ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
                     : "text-white hover:bg-white hover:text-[#3f59ac]"
                 }`}
               >
                 Vida en CFP
-              </button>
+              </Link>
             </li>
             <li className="md:border-l border-white md:ml-4 md:pl-4 vida-cfp-width">
-              <button
-                onClick={() => setVista("enlaces")}
+              <Link
+                to="/enlaces"
+                onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
-                  vistaActiva === "enlaces"
+                  isActive("/enlaces")
                     ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
                     : "text-white hover:bg-white hover:text-[#3f59ac]"
                 }`}
               >
                 Enlaces
-              </button>
+              </Link>
             </li>
             <li className="md:border-l border-white md:ml-4 md:pl-4 vida-cfp-width">
-              <button
-                onClick={() => setVista("rifa")}
+              <Link
+                to="/rifa"
+                onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
-                  vistaActiva === "rifa"
+                  isActive("/rifa")
                     ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
                     : "text-white hover:bg-white hover:text-[#3f59ac]"
                 }`}
               >
                 Rifa
-              </button>
+              </Link>
             </li>
             <li className="md:border-l border-white md:ml-4 md:pl-4 vida-cfp-width">
-              <button
-                onClick={() => setVista("contacto")}
+              <Link
+                to="/contacto"
+                onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
-                  vistaActiva === "contacto"
+                  isActive("/contacto")
                     ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
-                    : "text-white "
+                    : "text-white"
                 }`}
               >
                 Contacto
-              </button>
+              </Link>
             </li>
             <li className="md:border-l border-white md:ml-4 md:pl-4 vida-cfp-width relative">
-              <button
-                onClick={() => setVista("DonaHoy")}
+              <Link
+                to="/donahoy"
+                onClick={() => setMenuOpen(false)}
                 className={`relative group w-full ${
-                  vistaActiva === "DonaHoy"
+                  isActive("/donahoy")
                     ? "bg-red-600 text-white hover:text-red-600"
                     : "text-white hover:text-[#3f59ac]"
                 }`}
@@ -178,7 +189,7 @@ const Header = ({ setVista, vistaActiva }) => {
                     ♥
                   </span>
                 </span>
-              </button>
+              </Link>
             </li>
           </ul>
         </nav>
