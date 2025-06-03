@@ -4,12 +4,15 @@ import Carreras from "./Carreras"
 import Inscripciones from "./Inscripciones"
 const Main = () => {
     return (
-        <main className="main">
-            <Carrucel />
-            <InformacionGeneral />
-            <Carreras />
-            <Inscripciones />
-        </main>
+        <>
+            <main className="main">
+                <Carrucel />
+                <InformacionGeneral />
+                <Carreras />
+                <Inscripciones />
+            </main>
+
+        </>
     )
 }
 
