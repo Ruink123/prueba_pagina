@@ -15,12 +15,16 @@ const Header = () => {
         <nav className="relative flex items-center w-full justify-between h-20 md:h-auto gap-2 xs:gap-4">
           {/* Logo con margen izquierdo */}
           <div className="flex items-center flex-shrink-0 ml-2 xs:ml-4 sm:ml-6">
-            <img
-              src="https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/logo-sin-fondo.png"
-              alt="CFP Logo"
-              className="h-12 max-w-[110px] xs:h-14 xs:max-w-[140px] md:h-24 md:max-w-none"
-              style={{ background: "transparent" }}
-            />
+            <Link to="/">
+
+            
+              <img
+                src="https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/logo-sin-fondo.png"
+                alt="CFP Logo"
+                className="h-12 max-w-[110px] xs:h-14 xs:max-w-[140px] md:h-24 md:max-w-none"
+                style={{ background: "transparent" }}
+              />
+            </Link>
           </div>
           {/* Botón hamburguesa */}
           <button
