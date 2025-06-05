@@ -9,7 +9,6 @@ const Main = () => {
                 <Carrucel />
                 <InformacionGeneral />
                 <Carreras />
-                <Inscripciones />
             </main>
 
         </>
