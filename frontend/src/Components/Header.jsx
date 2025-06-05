@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <header className="bg-white md:py-4">
-      <div className="w-full md:max-w-7xl mx-auto px-2 md:px-8 flex justify-center">
+      <div className="w-full md:max-w-7xl mx-auto px-2  flex justify-center">
         <nav className="relative flex items-center w-full justify-between h-20 md:h-auto gap-2 xs:gap-4">
           {/* Logo con margen izquierdo */}
           <div className="flex items-center flex-shrink-0 ml-2 xs:ml-4 sm:ml-6">
