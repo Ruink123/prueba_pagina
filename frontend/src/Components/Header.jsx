@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
-
-  // Para saber qué ruta está activa
-  const isActive = (path) => location.pathname === path;
+  const isActivePath = (path) => location.pathname === path;
 
   return (
     <header className="bg-white md:py-4">
@@ -74,7 +71,7 @@ const Header = () => {
                 to="/"
                 onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
-                  isActive("/")
+                  isActivePath("/")
                     ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
                     : "text-white hover:bg-white hover:text-[#3f59ac]"
                 }`}
@@ -87,7 +84,7 @@ const Header = () => {
                 to="/nosotros"
                 onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
-                  isActive("/nosotros")
+                  isActivePath("/nosotros")
                     ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
                     : "text-white hover:bg-white hover:text-[#3f59ac]"
                 }`}
@@ -97,10 +94,10 @@ const Header = () => {
             </li>
             <li className="md:border-l border-white md:ml-4 md:pl-4 vida-cfp-width sm:w-36">
               <Link
-                to="/vidacfp"
+                to="/vida-cfp"
                 onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
-                  isActive("/vidacfp")
+                  isActivePath("/vida-cfp")
                     ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
                     : "text-white hover:bg-white hover:text-[#3f59ac]"
                 }`}
@@ -113,7 +110,7 @@ const Header = () => {
                 to="/enlaces"
                 onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
-                  isActive("/enlaces")
+                  isActivePath("/enlaces")
                     ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
                     : "text-white hover:bg-white hover:text-[#3f59ac]"
                 }`}
@@ -123,10 +120,10 @@ const Header = () => {
             </li>
             <li className="md:border-l border-white md:ml-4 md:pl-4 vida-cfp-width">
               <Link
-                to="/rifa"
+              to="/rifa"
                 onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
-                  isActive("/rifa")
+                  isActivePath("/rifa")
                     ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
                     : "text-white hover:bg-white hover:text-[#3f59ac]"
                 }`}
@@ -139,7 +136,7 @@ const Header = () => {
                 to="/contacto"
                 onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
-                  isActive("/contacto")
+                  isActivePath("/contacto")
                     ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
                     : "text-white"
                 }`}
@@ -149,10 +146,10 @@ const Header = () => {
             </li>
             <li className="md:border-l border-white md:ml-4 md:pl-4 vida-cfp-width relative">
               <Link
-                to="/donahoy"
+                to="/dona-hoy"
                 onClick={() => setMenuOpen(false)}
                 className={`relative group w-full ${
-                  isActive("/donahoy")
+                  isActivePath("/dona-hoy")
                     ? "bg-red-600 text-white hover:text-red-600"
                     : "text-white hover:text-[#3f59ac]"
                 }`}

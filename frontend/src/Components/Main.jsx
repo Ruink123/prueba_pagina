@@ -1,12 +1,16 @@
-import Carreras from "./carreras"
-
+import Carrucel from "./Carrucel"
+import InformacionGeneral from "./informacionGeneral"
+import Carreras from "./Carreras"
+import Inscripciones from "./Inscripciones"
 const Main = () => {
     return (
         <>
-        <main className="main pt-24 pb-8 px-4 md:px-8 lg:px-16">
-           <Carreras/>  
-        </main>
-        
+            <main className="main">
+                <Carrucel />
+                <InformacionGeneral />
+                <Carreras />
+            </main>
+
         </>
     )
 }
