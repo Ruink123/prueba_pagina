@@ -9,54 +9,28 @@ import Enlaces from "./Components/Enlaces";
 import Rifa from "./Components/Rifa";
 import DonaHoy from "./Components/DonaHoy";
 import Contacto from "./Components/Contacto";
+import Inscripciones from "./Components/Inscripciones";
+import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+
 function App() {
-  const [vista, setVista] = useState("inicio"); // "inicio" o "nosotros"
 
   return (
     <>
-      <Header setVista={setVista} vistaActiva={vista} />
+    <Router>
+      <Header/>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/vida-cfp" element={<VidaCFP />} />
+          <Route path="/enlaces" element={<Enlaces />} />
+          <Route path="/rifa" element={<Rifa />} />
+          <Route path="/dona-hoy" element={<DonaHoy />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/carrera/:id" element={<><Inscripciones /> <Footer/></>} />
 
-      {vista === "inicio" ? (
-        <>
-          <Main />
-          <Footer />
-        </>
-      ) : vista === "nosotros" ? (
-        <>
-          <Nosotros />
-          <Footer />
-        </>
-      ) : vista === "vidacfp" ? (
-        <>
-          <VidaCFP />
-          <Footer />
-        </>
-      )
-      : vista === "enlaces" ? (
-        <>
-          <Enlaces />
-          <Footer />
-        </>
-      )
-        : vista === "rifa" ? (
-        <>
-          <Rifa />
-          <Footer />
-        </>
-      )
-      : vista === "contacto" ? (
-        <>
-          <Contacto />
-          <Footer />
-        </>
-      )
-      : vista === "DonaHoy" ? (
-        <>
-          <DonaHoy />
-          <Footer  />
-        </>
-      )
-       : null}
+        </Routes>
+    </Router>
     </>
   )
 }
