@@ -1,7 +1,8 @@
 import Carrucel from "./Carrucel"
 import InformacionGeneral from "./informacionGeneral"
-import Carreras from "./Carreras"
+import Carreras from "./carreras"
 import Inscripciones from "./Inscripciones"
+import BanerDos from "./BanerDos"
 const Main = () => {
     return (
         <>
@@ -9,6 +10,7 @@ const Main = () => {
                 <Carrucel />
                 <InformacionGeneral />
                 <Carreras />
+                <BanerDos />
             </main>
 
         </>
