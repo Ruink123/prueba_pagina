@@ -26,6 +26,12 @@ import musica2 from '../assets/musica/musica2.jpg';
 import musica3 from '../assets/musica/musica3.jpg';
 import ingles1 from '../assets/ingles/ingles1.jpg';
 import ingles2 from '../assets/ingles/ingles2.jpg';
+import paneles1 from '../assets/paneles/paneles1.jpg';
+import paneles2 from '../assets/paneles/paneles2.jpg';
+import paneles3 from '../assets/paneles/paneles3.jpg';
+import paneles4 from '../assets/paneles/paneles4.jpg';
+import progra1 from '../assets/programacion/progra1.jpg';
+import progra2 from '../assets/programacion/progra2.jpg';
 
 const carreras = [
     {
@@ -164,7 +170,7 @@ const carreras = [
             soldadura2,
             soldadura3,
         ],
-    }, 
+    },
     {
         "id": "estructuras",
         "nombre": "Estructuras Metálicas Livianas",
@@ -190,10 +196,10 @@ const carreras = [
             "Sabatina: de 8:00 a.m.a 3:00 p.m.",
         ],
         "imagenes": [
-           estructuras1,
-           estructuras2,       
+            estructuras1,
+            estructuras2,
         ],
-    }, 
+    },
     {
         "id": "carpintería",
         "nombre": "Carpintería",
@@ -228,7 +234,7 @@ const carreras = [
             carpinteria2,
             carpinteria3,
         ],
-    }, 
+    },
     {
         "id": "torno",
         "nombre": "Mecánica de Torno y Fresado",
@@ -260,7 +266,7 @@ const carreras = [
             torno2,
             torno3,
         ],
-    }, 
+    },
     {
         "id": "motos",
         "nombre": "Mecánica de Motocicletas",
@@ -291,7 +297,7 @@ const carreras = [
             moto2,
             moto3,
         ],
-    }, 
+    },
     {
         "id": "musica",
         "nombre": "Academia de Música",
@@ -323,7 +329,7 @@ const carreras = [
             musica2,
             musica3,
         ],
-    }, 
+    },
     {
         "id": "ingles",
         "nombre": "Academia de Inglés",
@@ -361,13 +367,16 @@ const carreras = [
             ingles1,
             ingles2,
         ],
-    }, 
+    },
     {
         "id": "programacion",
         "nombre": "Programación y Desarrollo de Software",
         "descripcion": "El estudiante de Programación y Desarrollo de Software adquiere conocimientos fundamentales en lenguajes de programación, estructuras de datos, algoritmos y metodologías de desarrollo que le permiten crear aplicaciones y sistemas informáticos eficientes y escalables.\n\nDurante su formación, aprende a analizar problemas complejos y diseñar soluciones mediante la programación, utilizando diferentes paradigmas y frameworks actuales del mercado. Desarrolla habilidades para trabajar con bases de datos, interfaces de usuario y arquitecturas de software modernas.\n\nAdemás, se familiariza con metodologías ágiles de desarrollo, control de versiones, testing y despliegue de aplicaciones, preparándose para integrarse efectivamente en equipos de desarrollo de software en el ámbito profesional.",
         "¿Qué Aprenderás del Curso?": [
-            "° Mantenimiento preventivo y correctivo.",
+            "° Introdución a la programación y desarrollo de Software.",
+            "° Estructura Diseño y Logica a la programacion.",
+            "° Desarrollo Backend y Base de Datos.",
+            "° Proyecto integrador y Desarrollo Profecional.",
         ],
         "Requisitos": [
             "° 15 Años de edad.",
@@ -385,9 +394,8 @@ const carreras = [
             "Sabatina: de 8:00 a.m.a 3:00 p.m.",
         ],
         "imagenes": [
-            reparador1,
-            reparador2,
-            reparador3,
+            progra1,
+            progra2,
         ],
     },
     {
@@ -395,7 +403,12 @@ const carreras = [
         "nombre": "Paneles Solares",
         "descripcion": "El estudiante de este campo debe adquirir conocimientos de informática, electrónica, redes y otras afinidades con el campo de acción, para dar soporte, mantenimiento preventivo, correctivo y ofrecer opciones de reparación a un equipo o equipos de cómputo, así como la administración de los dispositivos de red.",
         "¿Qué Aprenderás del Curso?": [
-            "° Mantenimiento preventivo y correctivo.",
+            "° Optimización de sistemas solares.",
+            "° Integración de redes solares.",
+            "° Gestion de proyectos de paneles solores.",
+            "° Diagnostico de paneles solares.",
+            "° Mantenimiento Mecanico: Estructuras, Techos y Suelos.",
+            "° Normas de seguridades de paneles solares.",
         ],
         "Requisitos": [
             "° 15 Años de edad.",
@@ -413,9 +426,10 @@ const carreras = [
             "Sabatina: de 8:00 a.m.a 3:00 p.m.",
         ],
         "imagenes": [
-            reparador1,
-            reparador2,
-            reparador3,
+            paneles1,
+            paneles2,
+            paneles3,
+            paneles4,
         ],
     },
 ]

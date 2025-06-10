@@ -5,11 +5,14 @@ import { HiOutlineCube } from "react-icons/hi2";
 import { IoPersonSharp } from "react-icons/io5";
 import { SlEnvolopeLetter } from "react-icons/sl";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const InformacionGeneral = () => {
     // Estado para controlar qué cuadro está seleccionado o con hover
     const [activeCard, setActiveCard] = useState(null);
+
+    const navigate = useNavigate();
 
     // Función para manejar cuando el mouse entra en un cuadro
     const handleMouseEnter = (cardId) => {
@@ -43,11 +46,13 @@ const InformacionGeneral = () => {
                             <p className="text-white font-bold text-xl md:text-2xl text-left">
                                 Inscripciones 2024
                             </p>
-                            <button
-                                className={`${activeCard === 1 ? ' h-10 bg-[#e91e63] text-[#ffffff]' : 'bg-[#ffffff] text-black'} font-semibold py-2 px-4 rounded mt-2 w-fit capitalize shadow`}
-                            >
-                                Ver Más
-                            </button>
+                            <Link to="/inscripciones2025">
+                                <button
+                                    className={`${activeCard === 1 ? ' h-10 bg-[#e91e63] text-[#ffffff]' : 'bg-[#ffffff] text-black'} font-semibold py-2 px-4 rounded mt-2 w-fit capitalize shadow`}
+                                >
+                                    Ver Más
+                                </button>
+                            </Link>
                         </div>
                     </div>
 
@@ -67,11 +72,16 @@ const InformacionGeneral = () => {
                             <p className="text-white font-bold text-xl md:text-2xl text-left">
                                 Carreras Técnicas
                             </p>
-                            <button
-                                className={`${activeCard === 2 ? ' h-10 bg-[#e91e63] text-[#ffffff]' : 'bg-[#ffffff] text-black'} font-semibold py-2 px-4 rounded mt-2 w-fit capitalize shadow`}
+                            <Link to="/carrera-tecnica"
+                               onClick={() => navigate(`/carrera-tecnica`)}
                             >
-                                Ver Más
-                            </button>
+
+                                <button
+                                    className={`${activeCard === 2 ? ' h-10 bg-[#e91e63] text-[#ffffff]' : 'bg-[#ffffff] text-black'} font-semibold py-2 px-4 rounded mt-2 w-fit capitalize shadow`}
+                                >
+                                    Ver Más
+                                </button>
+                            </Link>
                         </div>
                     </div>
 
@@ -91,11 +101,13 @@ const InformacionGeneral = () => {
                             <p className="text-white font-bold text-base md:text-xl text-left">
                                 DONA HOY
                             </p>
-                            <button
-                                className={`${activeCard === 3 ? ' h-10 bg-[#e91e63] text-[#ffffff]' : 'bg-[#ffffff] text-black'} font-semibold py-2 px-4 rounded mt-2 w-fit capitalize shadow`}
-                            >
-                                Ver Más
-                            </button>
+                            <Link to="/donahoy">
+                                <button
+                                    className={`${activeCard === 3 ? ' h-10 bg-[#e91e63] text-[#ffffff]' : 'bg-[#ffffff] text-black'} font-semibold py-2 px-4 rounded mt-2 w-fit capitalize shadow`}
+                                >
+                                    Ver Más
+                                </button>
+                            </Link>
                         </div>
                     </div>
 
@@ -115,11 +127,13 @@ const InformacionGeneral = () => {
                             <p className="text-white font-bold text-xl md:text-2xl text-left">
                                 Acerca de nosotros
                             </p>
-                            <button
-                                className={`${activeCard === 4 ? ' h-10 bg-[#e91e63] text-[#ffffff]' : 'bg-[#ffffff] text-black'} font-semibold py-2 px-4 rounded mt-2 w-fit capitalize shadow`}
-                            >
-                                Ver Más
-                            </button>
+                            <Link to="/nosotros">
+                                <button
+                                    className={`${activeCard === 4 ? ' h-10 bg-[#e91e63] text-[#ffffff]' : 'bg-[#ffffff] text-black'} font-semibold py-2 px-4 rounded mt-2 w-fit capitalize shadow`}
+                                >
+                                    Ver Más
+                                </button>
+                            </Link>
                         </div>
                     </div>
 
@@ -139,11 +153,13 @@ const InformacionGeneral = () => {
                             <p className="text-white font-bold text-xl md:text-2xl text-left">
                                 Gran rifa salesiana
                             </p>
-                            <button
-                                className={`${activeCard === 5 ? ' h-10 bg-[#e91e63] text-[#ffffff]' : 'bg-[#ffffff] text-black'} font-semibold py-2 px-4 rounded mt-2 w-fit capitalize shadow`}
-                            >
-                                Ver Más
-                            </button>
+                            <Link to="/rifa">
+                                <button
+                                    className={`${activeCard === 5 ? ' h-10 bg-[#e91e63] text-[#ffffff]' : 'bg-[#ffffff] text-black'} font-semibold py-2 px-4 rounded mt-2 w-fit capitalize shadow`}
+                                >
+                                    Ver Más
+                                </button>
+                            </Link>
                         </div>
                     </div>
 
@@ -163,11 +179,13 @@ const InformacionGeneral = () => {
                             <p className="text-white font-bold text-xl md:text-2xl text-left">
                                 contáctanos
                             </p>
-                            <button
-                                className={`${activeCard === 6 ? ' h-10 bg-[#e91e63] text-[#ffffff]' : 'bg-[#ffffff] text-black'} font-semibold py-2 px-4 rounded mt-2 w-fit capitalize shadow`}
-                            >
-                                Ver Más
-                            </button>
+                            <Link to="/contacto">
+                                <button
+                                    className={`${activeCard === 6 ? ' h-10 bg-[#e91e63] text-[#ffffff]' : 'bg-[#ffffff] text-black'} font-semibold py-2 px-4 rounded mt-2 w-fit capitalize shadow`}
+                                >
+                                    Ver Más
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

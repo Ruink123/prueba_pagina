@@ -1,9 +1,11 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import { TiArrowSortedDown } from "react-icons/ti";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Formulario = () => {
+  const location = useLocation();
   const [isTermsAccepted, setIsTermsAccepted] = useState(false);
   const [birthDate, setBirthDate] = useState("");
   const [age, setAge] = useState("");
@@ -13,6 +15,16 @@ const Formulario = () => {
   const [medicamento, setMedicamento] = useState("Si");
   const [alergia, setAlergia] = useState("Si");
   const [otrosCursos, setOtrosCursos] = useState("");
+  const [selectedCarrera, setSelectedCarrera] = useState("Seleccione un taller");
+  
+  // Get the career from URL parameters when component mounts
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const carrera = searchParams.get('carrera');
+    if (carrera) {
+      setSelectedCarrera(carrera);
+    }
+  }, [location]);
 
   //marcar el checkbox de términos y condiciones para habilidatr el boton de enviar
   const handleTermsCheckbox = (e) => {
@@ -109,20 +121,24 @@ const Formulario = () => {
                     Taller en el que Desea Inscribirse
                   </label>
                   <div className="flex flex-row  relative border border-gray-600 rounded p-2 bg-white ">
-                    <select className="appearance-none w-full focus:outline-none pl-3">
+                    <select 
+                      className="appearance-none w-full focus:outline-none pl-3"
+                      value={selectedCarrera}
+                      onChange={(e) => setSelectedCarrera(e.target.value)}
+                    >
                       <option>Seleccione un taller</option>
-                      <option>Operador y reparador de computadoras</option>
-                      <option>redes cisco computación</option>
-                      <option>electricidad industrial y domiciliar</option>
-                      <option>soldadura industrial</option>
-                      <option>estructuras metálicas livianas</option>
-                      <option>carpintería</option>
-                      <option>MECANICA DE TORNO Y FRESADORA</option>
-                      <option>mecánica de motocicletas</option>
-                      <option>academia de música</option>
-                      <option> academia de inglés</option>
-                      <option> Programación y desarrollo de software</option>
-                      <option> paneles Solares</option>
+                      <option>Operador y Reparador de Computadoras</option>
+                      <option>Redes Cisco Computación</option>
+                      <option>Electricidad Industrial y Domiciliar</option>
+                      <option>Soldadura Industrial</option>
+                      <option>Estructuras Metálicas Livianas</option>
+                      <option>Carpintería</option>
+                      <option>Mecánica de Torno y Fresado</option>
+                      <option>Mecánica de Motocicletas</option>
+                      <option>Academia de Música</option>
+                      <option>Academia de Inglés</option>
+                      <option>Programación y Desarrollo de Software</option>
+                      <option>Paneles Solares</option>
                     </select>
 
                     <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
