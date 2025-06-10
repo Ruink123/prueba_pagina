@@ -1,5 +1,4 @@
-import Header from "./Header";
-import Footer from "./Footer";
+
 import { TiArrowSortedDown } from "react-icons/ti";
 import { useState } from "react";
 
@@ -78,7 +77,7 @@ const Formulario = () => {
   return (
     <>
       <section className="w-full h-auto flex   flex-col capitalize">
-        <Header />
+        
 
         <form
           action=""
@@ -974,7 +973,7 @@ const Formulario = () => {
           </div>
         </form>
 
-        <Footer />
+        
       </section>
     </>
   );
