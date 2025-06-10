@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef,  } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
 import Carreras1 from "../data/archivo";
 
 import * as fa6Icons from "react-icons/fa6";
@@ -10,7 +9,6 @@ import * as slIcons from "react-icons/sl";
 import * as biIcons from "react-icons/bi";
 
 const Carreras = () => {
-  const navigate = useNavigate();
   const [displayText, setDisplayText] = useState("");
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [showWord, setShowWord] = useState(false);
@@ -36,7 +34,7 @@ const Carreras = () => {
     // Iniciar con solo el cursor parpadeando por 1 segundo (reducido de 2s)
     cursorTimeoutRef.current = setTimeout(() => {
       setShowWord(true);
-    },110);
+    },60);
 
     return () => {
       if (cursorTimeoutRef.current) {
@@ -137,7 +135,7 @@ const Carreras = () => {
           </div>
 
           {/* Texto de fondo */}
-          <p className="hidden sm:block absolute text-center top-[80%] -translate-x-2 -translate-y-5 text-lg sm:text-xl md:text-2xl lg:text-[3rem] font-extrabold text-gray-300 opacity-50">
+          <p className="hidden sm:block absolute text-center top-[80%] -translate-x-2 -translate-y-5 text-lg sm:text-xl md:text-2xl lg:text-[3rem] font-extrabold text-gray-300 opacity-50 pointer-events-none ">
             FUNDACIÓN ALBERTO MARVELLI
           </p>
 
@@ -166,10 +164,7 @@ const Carreras = () => {
 
               
               return (
-                <div 
-                  className="w-full sm:w-[calc(50%-0.375rem)] lg:w-full h-68 group perspective md:w-full cursor-pointer"
-                  onClick={() => navigate(`/carrera/${carrera.id}`)}
-                >
+                <div className="w-full sm:w-[calc(50%-0.375rem)] lg:w-full h-68 group perspective md:w-full ">
                   <div
                     className={`relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:rotate-y-180 ${colorClass}`}
                   >
@@ -222,24 +217,17 @@ const Carreras = () => {
                     {/* Cara Trasera */}
 
                     <div className="absolute w-full h-full rotate-y-180 backface-hidden">
-                      <div className="w-full h-full flex justify-center relative">
+                      <div className="w-full h-full  flex justify-center relative">
                         <div key={carrera.id}>
                           <img
                             src={carrera.imagen2}
-                            className="w-full h-full object-cover absolute"
+                            className="w-full h-full object-cover fixed"
                           ></img>
                         </div>
                         <div className="w-full h-full flex justify-center items-center flex-col relative z-10">
-                          <Link 
-                            to={`/carrera/${carrera.id}`}
-                            className="bg-[#ee9b00] text-white px-3 py-1 rounded text-sm text-center uppercase font-semibold transition-colors cursor-pointer border-white border-2 hover:bg-[#d68a00]"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              navigate(`/carrera/${carrera.id}`);
-                            }}
-                          >
+                          <button className="bg-[#ee9b00] text-white px-3 py-1 rounded text-sm uppercase font-semibold transition-colors cursor-pointer border-white border-2">
                             ver más <br /> información
-                          </Link>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -248,7 +236,6 @@ const Carreras = () => {
               );
             })}
           </div>
-                  
           {/* Banner de inscripción */}
           <div className="w-full sm:w-full lg:w-full lg:h-56 h-auto sm:h-68 bg-[#f3af0c]  ">
             <div className="p-4 md:p-6 h-full flex flex-col justify-between">
@@ -269,7 +256,7 @@ const Carreras = () => {
               <div className="mt-4 ">
                 <button className="bg-[#ea562b] w-full sm:w-auto px-4 py-2 hover:bg-[#3f51b5] transition duration-300 ">
                   <a
-                    href="https://fundacionalbertomarvelli.org/inscripciones/"
+                    href="#"
                     className="text-white font-medium"
                   >
                     Más información

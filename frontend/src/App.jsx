@@ -21,9 +21,7 @@ import Inscripcion2025 from "./Components/inscripciones2025";
 import Carrera_Tecnica from "./Components/carrera_Tecnica";
 
 function App() {
-
   return (
-    <>
     <Router>
       <Header />
       <Routes>
@@ -173,8 +171,7 @@ function App() {
         />
       </Routes>
     </Router>
-    </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -13,15 +13,13 @@ import motos2 from "../assets/Carreras/motos_trasera.jpg";
 import musica from "../assets/Carreras/musica_trasera.jpg";
 import musica2 from "../assets/Carreras/musica_trasera.jpg";
 import ingles from "../assets/Carreras/ingles.jpg";
+import programacion from "../assets/Carreras/progra_frontal.jpg";
 import progra from "../assets/Carreras/progra_frontal.jpg";
-import progra2 from "../assets/Carreras/progra_trasera.jpg";
-import paneles from "../assets/Carreras/paneles.jpg";
-
 import steelBeamIcon from '/steel-beam_10393322.svg';
 import latheIcon from '/lathe-machine_9472048.svg';
 import weldingMaskIcon from '/welding-mask_4610697.svg';
 import anchor from '/anchor_4338207.svg';
-
+import paneles from "../assets/Carreras/paneles.jpg";
 
 const Carreras1 = [
   {
@@ -118,7 +116,7 @@ const Carreras1 = [
     title: " Programación y desarrollo de software",
     description: " carrera técnica.",
     imagen1: progra,
-    imagen2: progra2,
+    imagen2: programacion,
   },
   {
     id: "paneles",

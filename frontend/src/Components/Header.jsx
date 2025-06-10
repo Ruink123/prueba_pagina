@@ -8,19 +8,22 @@ const Header = () => {
 
   return (
     <header className="bg-white md:py-4">
-      <div className="w-full md:max-w-7xl mx-auto px-2 md:px-8 flex justify-center">
+      <div className="w-full md:max-w-7xl mx-auto px-2  flex justify-center">
         <nav className="relative flex items-center w-full justify-between h-20 md:h-auto gap-2 xs:gap-4">
-          {" "}
           {/* Logo con margen izquierdo */}
           <div className="flex items-center flex-shrink-0 ml-2 xs:ml-4 sm:ml-6">
-            <img
-              src="https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/logo-sin-fondo.png"
-              alt="CFP Logo"
-              className="h-12 max-w-[110px] xs:h-14 xs:max-w-[140px] md:h-24 md:max-w-none"
-              style={{ background: "transparent" }}
-            />
+            <Link to="/">
+
+            
+              <img
+                src="https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/logo-sin-fondo.png"
+                alt="CFP Logo"
+                className="h-12 max-w-[110px] xs:h-14 xs:max-w-[140px] md:h-24 md:max-w-none"
+                style={{ background: "transparent" }}
+              />
+            </Link>
           </div>
-          {/* Botón hamburguesa en la esquina superior derecha */}
+          {/* Botón hamburguesa */}
           <button
             className="md:hidden absolute right-2 top-4 xs:right-4 sm:right-6 z-50 transition-transform duration-500"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -55,7 +58,7 @@ const Header = () => {
               menuOpen
                 ? {
                     position: "absolute",
-                    top: "80px", // igual a h-20
+                    top: "80px",
                     left: 0,
                     width: "100%",
                     zIndex: 40,
@@ -135,7 +138,7 @@ const Header = () => {
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
                   isActivePath("/contacto")
                     ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
-                    : "text-white "
+                    : "text-white"
                 }`}
               >
                 Contacto

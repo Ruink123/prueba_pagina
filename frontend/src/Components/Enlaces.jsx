@@ -130,7 +130,7 @@ const Enlaces = () => {
                 <img
                   src={enlace.img}
                   alt={enlace.alt}
-                  className="max-h-16 max-w-[180px] object-contain"
+                  className="max-h-28 max-w-[220px] object-contain"
                 />
               </a>
             ))}
