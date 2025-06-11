@@ -3,11 +3,11 @@ import fondo from "../assets/vidaCfp/fondo1.jpg";
 import { FaRegNewspaper } from "react-icons/fa";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { newsData } from "../data/vidaCfp";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 const VidaCFP = () => {
   const [index, setIndex] = useState(0);
-
+  const navigate = useNavigate();
   // Cambia el título cada 2 segundos
   useEffect(() => {
     const interval = setInterval(() => {
@@ -87,6 +87,7 @@ const VidaCFP = () => {
               <p className="text-sm text-gray-700 mb-4">{news.description}</p>
               <Link
                 to={`/noticia/${news.id}`}
+                onClick={ () => navigate(`/noticia/${news.id}`) }
                 className="bg-black text-white px-6 py-2 text-sm hover:bg-gray-800 transition-colors"
               >
                 Leer Más

@@ -142,7 +142,7 @@ const DonaHoy = () => {
         </div>
       </div>
       <div className="w-full mt-8 py-4 text-center  bg-[#f5dda6]">
-        <TypewriterText text="¡ Muchas Gracias por tu Donativo" />
+        <TypewriterText text="¡ Muchas Gracias por tu Donativo"  />
       </div>
       <br />
       <div className="w-full flex flex-col md:flex-row items-center justify-center bg-[#f5dda6] py-10 mb-6 rounded-lg ">

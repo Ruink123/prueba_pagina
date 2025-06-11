@@ -85,10 +85,10 @@ const Contacto = () => {
                   defaultValue="Información General"
                 >
                   <option>Información General</option>
-                  <option>Inscripsión</option>
+                  <option>Inscripción</option>
                   <option>Cursos</option>
                   <option>Donaciones</option>
-                  <option>quiero Aplicar a Una Beca</option>
+                  <option>Quiero aplicar a una beca</option>
                 </select>
               </div>
             </div>
@@ -143,17 +143,30 @@ const Contacto = () => {
             </li>
             <li className="flex items-center gap-2">
               <FaFacebookF />
-              Facebook.com/CFP.AMBROSIO
+              <a
+                href="https://www.facebook.com/CFP.AMBROSIO"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Facebook.com/CFP.AMBROSIO
+              </a>
             </li>
             <li className="flex items-center gap-2">
               <FaInstagram />
-              Instagram.com/cfpbartolomeambrosio/
+              <a href="https://www.Instagram.com/cfpbartolomeambrosio">
+                Instagram.com/cfpbartolomeambrosio{" "}
+              </a>
             </li>
           </ul>
         </div>
       </div>
       <div className="flex justify-center">
-      <iframe src="https://embed.waze.com/iframe?zoom=16&lat=14.612307&lon=-90.530826&ct=livemap" width="1250" height="450" allowfullscreen ></iframe>
+        <iframe
+          src="https://embed.waze.com/iframe?zoom=17&lat=14.6114&lon=-90.52959&pin=1"
+          width="1250"
+          height="450"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
   );

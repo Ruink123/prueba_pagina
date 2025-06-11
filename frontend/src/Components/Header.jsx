@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
   const isActivePath = (path) => location.pathname === path;
 
   return (
     <header className="bg-white md:py-4">
-      <div className="w-full md:max-w-7xl mx-auto px-2  flex justify-center">
+      <div className="w-full md:max-w-7xl mx-auto px-2 flex justify-center">
         <nav className="relative flex items-center w-full justify-between h-20 md:h-auto gap-2 xs:gap-4">
-          {/* Logo con margen izquierdo */}
           <div className="flex items-center flex-shrink-0 ml-2 xs:ml-4 sm:ml-6">
             <Link to="/">
-
-            
               <img
                 src="https://fundacionalbertomarvelli.org/wp-content/uploads/2022/05/logo-sin-fondo.png"
                 alt="CFP Logo"
@@ -23,7 +21,7 @@ const Header = () => {
               />
             </Link>
           </div>
-          {/* Botón hamburguesa */}
+
           <button
             className="md:hidden absolute right-2 top-4 xs:right-4 sm:right-6 z-50 transition-transform duration-500"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -41,18 +39,13 @@ const Header = () => {
               )}
             </span>
           </button>
-          {/* Menú */}
+
           <ul
             className={`
               bg-[#3f59ac] rounded-sm flex-1 transition-all
               md:flex md:flex-row md:h-24 md:items-center md:pl-8 md:pr-4 md:justify-around
-              ${
-                menuOpen
-                  ? "flex flex-col items-center gap-4 py-6 absolute top-20 left-0 w-full z-40"
-                  : "hidden"
-              }
-              md:static
-              md:w-auto
+              ${menuOpen ? "flex flex-col items-center gap-4 py-6 absolute top-20 left-0 w-full z-40" : "hidden"}
+              md:static md:w-auto
             `}
             style={
               menuOpen
@@ -72,90 +65,95 @@ const Header = () => {
                 onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
                   isActivePath("/")
-                    ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
-                    : "text-white hover:bg-white hover:text-[#3f59ac]"
+                    ? "bg-red-600 text-white hover:bg-[#ffd25a] hover:text-black"
+                    : "text-white hover:text-white hover:bg-[#3f59ac]"
                 }`}
               >
                 Inicio
               </Link>
             </li>
+
             <li className="md:border-l border-white md:ml-4 md:pl-4">
               <Link
                 to="/nosotros"
                 onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
                   isActivePath("/nosotros")
-                    ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
-                    : "text-white hover:bg-white hover:text-[#3f59ac]"
+                    ? "bg-white text-[#3f59ac] hover:bg-white hover:text-[#3f59ac]"
+                    : "text-white hover:text-[#3f59ac] hover:bg-white"
                 }`}
               >
                 Nosotros
               </Link>
             </li>
+
             <li className="md:border-l border-white md:ml-4 md:pl-4 vida-cfp-width sm:w-36">
               <Link
                 to="/vida-cfp"
                 onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
                   isActivePath("/vida-cfp")
-                    ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
-                    : "text-white hover:bg-white hover:text-[#3f59ac]"
+                    ? "bg-white text-[#3f59ac] hover:bg-white hover:text-[#3f59ac]"
+                    : "text-white  hover:text-[#3f59ac] hover:bg-white"
                 }`}
               >
                 Vida en CFP
               </Link>
             </li>
+
             <li className="md:border-l border-white md:ml-4 md:pl-4 vida-cfp-width">
               <Link
                 to="/enlaces"
                 onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
                   isActivePath("/enlaces")
-                    ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
-                    : "text-white hover:bg-white hover:text-[#3f59ac]"
+                    ? "bg-white text-[#3f59ac] hover:bg-white hover:text-[#3f59ac]"
+                    : "text-white  hover:text-[#3f59ac] hover:bg-white"
                 }`}
               >
                 Enlaces
               </Link>
             </li>
+
             <li className="md:border-l border-white md:ml-4 md:pl-4 vida-cfp-width">
               <Link
-              to="/rifa"
+                to="/rifa"
                 onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
                   isActivePath("/rifa")
-                    ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
-                    : "text-white hover:bg-white hover:text-[#3f59ac]"
+                    ? "bg-white text-[#3f59ac] hover:bg-white hover:text-[#3f59ac]"
+                    : "text-white  hover:text-[#3f59ac] hover:bg-white"
                 }`}
               >
                 Rifa
               </Link>
             </li>
+
             <li className="md:border-l border-white md:ml-4 md:pl-4 vida-cfp-width">
               <Link
                 to="/contacto"
                 onClick={() => setMenuOpen(false)}
                 className={`flex items-center justify-center flex-1 h-10 px-4 rounded-lg text-lg transition-all duration-200 ${
                   isActivePath("/contacto")
-                    ? "bg-red-600 text-white hover:bg-white hover:text-red-600"
-                    : "text-white"
+                    ? "bg-white text-[#3f59ac] hover:bg-white hover:text-[#3f59ac]"
+                    : "text-white  hover:text-[#3f59ac] hover:bg-white"
                 }`}
               >
                 Contacto
               </Link>
             </li>
+
             <li className="md:border-l border-white md:ml-4 md:pl-4 vida-cfp-width relative">
               <Link
                 to="/dona-hoy"
                 onClick={() => setMenuOpen(false)}
                 className={`relative group w-full ${
                   isActivePath("/dona-hoy")
-                    ? "bg-red-600 text-white hover:text-red-600"
-                    : "text-white hover:text-[#3f59ac]"
+                    ? "bg-red-600 text-white hover:text-white"
+                    : "text-white hover:text-white"
                 }`}
                 style={{ minWidth: "120px" }}
               >
-                {/* Fondo naranja */}
                 <span
                   className="absolute left-1 top-1 w-full h-full rounded-sm transition-all duration-200 group-hover:left-0 group-hover:top-0"
                   style={{
@@ -164,7 +162,6 @@ const Header = () => {
                     transform: "rotate(-2deg)",
                   }}
                 ></span>
-                {/* Fondo amarillo */}
                 <span
                   className="absolute left-0 top-0 w-full h-full rounded-sm transition-all duration-200 group-hover:left-1 group-hover:top-1"
                   style={{

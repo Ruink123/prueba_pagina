@@ -50,14 +50,14 @@ const Carreras = () => {
     const handleWordChange = () => {
       const currentWord = words[currentWordIndex];
       let currentIndex = 0;
-      
+
       // Función para mostrar letra por letra
       const showNextLetter = () => {
         if (currentIndex <= currentWord.length) {
           // Mostrar las letras hasta el índice actual
           setDisplayText(currentWord.substring(0, currentIndex));
           currentIndex++;
-          
+
           // Continuar mostrando letras hasta completar la palabra
           if (currentIndex <= currentWord.length) {
             timeoutRef.current = setTimeout(showNextLetter, 50); // Velocidad de aparición de cada letra
@@ -69,7 +69,7 @@ const Carreras = () => {
                 if (currentIndex > 0) {
                   currentIndex--;
                   setDisplayText(currentWord.substring(0, currentIndex));
-                  
+
                   if (currentIndex > 0) {
                     timeoutRef.current = setTimeout(hideLetters, 50); // Velocidad de desaparición de cada letra
                   } else {
@@ -80,14 +80,14 @@ const Carreras = () => {
                   }
                 }
               };
-              
+
               // Reducir el tiempo que se muestra la palabra completa
               timeoutRef.current = setTimeout(hideLetters, 900); // Reducido de 8000ms a 2000ms
             }, 200); // Reducido de 500ms a 300ms
           }
         }
       };
-      
+
       // Iniciar la animación letra por letra
       showNextLetter();
     };
@@ -106,15 +106,13 @@ const Carreras = () => {
   return (
     <>
       <section className="h-auto w-full pt-5 px-2 sm:px-4 md:px-6">
-      {/* Header con título principal y animación */}
+        {/* Header con título principal y animación */}
         <div className="w-full flex flex-col items-center mb-10 relative">
           {/* animaciones */}
           <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mt-8 px-2  ">
             <div className="flex flex-col sm:flex-row justify-center items-center font-semibold">
               <div className="flex items-center  flex-col lg:flex lg:flex-row">
-                <p className="capitalize text-4xl font-bold">
-                  {phrase}
-                </p>
+                <p className="capitalize text-4xl font-bold">{phrase}</p>
                 <div className="h-10 sm:h-12 md:h-14">
                   <p className="text-[#ea562b] font-bold whitespace-nowrap pl-3  ">
                     {displayText}
@@ -162,7 +160,6 @@ const Carreras = () => {
                 colorClass = colores[0];
               }
 
-              
               return (
                 <div className="w-full sm:w-[calc(50%-0.375rem)] lg:w-full h-68 group perspective md:w-full ">
                   <div
@@ -264,6 +261,8 @@ const Carreras = () => {
                 </button>
               </div>
             </div>
+
+          
           </div>
         </div>
       </section>

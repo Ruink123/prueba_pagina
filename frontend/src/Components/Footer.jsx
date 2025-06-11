@@ -30,7 +30,7 @@ const Footer = () => {
               <li>Donaciones | Fondo de Becas</li>
             </ul>
           </div>
-          <div className="flex flex-col items-center text-center w-full md:w-1/3 md:items-start md:text-left">
+          <div className="flex flex-col items-center text-center justify-center  w-full md:w-1/3 md:items-start md:text-left">
             <strong>
               <h2 style={{ margin: 0 }}>Contáctanos</h2>
             </strong>

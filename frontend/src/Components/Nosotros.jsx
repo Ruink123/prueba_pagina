@@ -245,7 +245,7 @@ const Nosotros = () => {
         <h1 className="relative text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white text-center mb-4 md:mb-8 z-10 px-4">
           ¿QUIÉNES SOMOS?
         </h1>
-        
+
         {/* Contenedor centrado para tabs y contenido - responsive en ancho y padding */}
         <div className="w-full max-w-4xl mx-auto px-4 md:px-6">
           {/* Tabs - responsive con scroll horizontal en móvil */}
@@ -253,11 +253,12 @@ const Nosotros = () => {
             {tabs.map((tab, idx) => (
               <div key={tab.title} className="relative flex-shrink-0">
                 <button
-                  className={`px-3 sm:px-4 py-2 text-sm sm:text-base font-semibold focus:outline-none rounded-t-sm whitespace-nowrap ${
-                    activeTab === idx
-                      ? "bg-[#eb572a] text-white "
-                      : "text-white hover:bg-[#f2ad0c]"
-                  }`}
+                  className={`px-3 sm:px-4 py-2 text-sm sm:text-base font-semibold focus:outline-none rounded-t-sm whitespace-nowrap
+${
+  activeTab === idx
+    ? "bg-[#eb572a] text-white "
+    : "text-white hover:bg-[#f2ad0c]"
+}`}
                   onClick={() => setActiveTab(idx)}
                 >
                   {tab.title}
@@ -277,14 +278,14 @@ const Nosotros = () => {
               </div>
             ))}
           </div>
-          
+
           {/* Contenido de pestaña - responsive en padding y tamaño de texto */}
           <div className="bg-white bg-opacity-95 rounded-b text-shadow-2xs p-4 md:p-6 shadow text-gray-900 text-sm md:text-base leading-relaxed rounded-sm overflow-y-auto max-h-[60vh] md:max-h-none">
             {tabs[activeTab].content}
           </div>
         </div>
       </div>
-      
+
       {/* Sección Misión y Visión - responsive en altura y layout */}
       <div className="w-full bg-orange-400 flex justify-start h-auto">
         <div className="w-full py-8 md:py-12 flex justify-center">
@@ -295,7 +296,7 @@ const Nosotros = () => {
               alt="Foto institucional"
               className="w-full h-48 md:h-72 object-cover"
             />
-            
+
             {/* Tabs de Misión/Visión - responsive */}
             <div className="flex bg-gray-700 text-white relative ">
               <button
@@ -337,7 +338,7 @@ const Nosotros = () => {
                 )}
               </button>
             </div>
-            
+
             {/* Contenido de Misión/Visión - corregido height y padding responsive */}
             <div className="p-4 md:p-8 text-sm md:text-base min-h-[100px] bg-white">
               {tab === "mision" && (

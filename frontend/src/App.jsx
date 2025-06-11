@@ -40,7 +40,7 @@ function App() {
           }
         />
         <Route
-          path="/vidacfp"
+          path="/vida-cfp"
           element={
             <>
               <VidaCFP />
@@ -76,7 +76,7 @@ function App() {
           }
         />
         <Route
-          path="/donahoy"
+          path="/dona-hoy"
           element={
             <>
               <DonaHoy />
